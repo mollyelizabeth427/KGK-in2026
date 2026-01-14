@@ -7,3 +7,40 @@ body{margin:0;font-family:system-ui;background:#0b1220;color:#e5e7eb}
 .wheel{font-size:48px;text-align:center}
 .rt-box{padding:20px;border:1px solid #333;text-align:center}
 .hidden{display:none}
+.sep{border:none;border-top:1px solid rgba(255,255,255,.12);margin:14px 0}
+
+.streak-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:10px;
+}
+.streak-pill{
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+  border-radius:14px;
+  padding:10px 12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.streak-pill span{opacity:.85;font-size:12px}
+.streak-pill b{font-size:18px}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  background:rgba(15,27,51,.95);
+  border:1px solid rgba(255,255,255,.14);
+  color:#e5e7eb;
+  padding:12px 14px;
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  max-width:min(560px, calc(100vw - 24px));
+  z-index:9999;
+  font-weight:700;
+}
+.toast small{display:block;opacity:.85;font-weight:600;margin-top:4px}
+.hidden{display:none}
