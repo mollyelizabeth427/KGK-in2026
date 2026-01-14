@@ -1,17 +1,15 @@
-const CACHE = "levelup-v3";
+const CACHE = "levelup-v4";
 const ASSETS = [
   "./",
   "./index.html",
   "./app.js",
   "./styles.css",
-  "./style.css",
-  "./manifest.webmanifest"
+  "./manifest.webmanifest",
+  "./sw.js"
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(ASSETS))
-  );
+  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)));
   self.skipWaiting();
 });
 
