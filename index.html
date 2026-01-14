@@ -30,59 +30,44 @@
   <main class="container">
 
     <!-- TODAY -->
-    <section class="view" id="view-today">
-      <div class="panel">
-        <div class="row">
-          <div>
-            <div class="h1">Today’s Run</div>
-            <div class="muted" id="todayDate"></div>
-          </div>
-          <div class="stats">
-            <div class="stat"><div class="label">Level</div><div class="value" id="levelVal">1</div></div>
-            <div class="stat"><div class="label">XP</div><div class="value" id="xpVal">0</div></div>
-            <div class="stat"><div class="label">Coins</div><div class="value" id="coinsVal">0</div></div>
-          </div>
-        </div>
+<div class="panel">
+  <div class="row">
+    <div>
+      <div class="h2">Streaks</div>
+      <div class="muted small">Keep the run alive. Shields protect misses.</div>
+    </div>
+    <div class="muted small">🛡️ <span id="shieldCount">0</span></div>
+  </div>
 
-        <div class="progress-wrap">
-          <div class="muted small">Progress</div>
-          <div class="progress"><div class="progress-bar" id="xpBar"></div></div>
-          <div class="muted small" id="xpHint"></div>
-        </div>
-      </div>
+  <div class="streak-grid">
+    <div class="streak-pill"><span>🔥 Daily</span><b id="stDaily">0</b></div>
+    <div class="streak-pill"><span>🧩 Quests</span><b id="stQuests">0</b></div>
+    <div class="streak-pill"><span>💧 Water</span><b id="stWater">0</b></div>
+    <div class="streak-pill"><span>🧠 Check</span><b id="stCheck">0</b></div>
+  </div>
 
-      <div class="grid-2">
-        <div class="panel">
-          <div class="h2">Quests</div>
+  <hr class="sep" />
 
-          <div class="quest" data-quest="medsAM"><div><div class="qtitle">Meds (AM)</div></div><button class="qbtn">Complete</button></div>
-          <div class="quest" data-quest="medsPM"><div><div class="qtitle">Meds (PM)</div></div><button class="qbtn">Complete</button></div>
-          <div class="quest" data-quest="move1"><div><div class="qtitle">Movement 1</div></div><button class="qbtn">Complete</button></div>
-          <div class="quest" data-quest="move2"><div><div class="qtitle">Movement 2</div></div><button class="qbtn">Complete</button></div>
-          <div class="quest" data-quest="rest"><div><div class="qtitle">Intentional Rest</div></div><button class="qbtn">Complete</button></div>
+  <div class="h2">Brain Check</div>
+  <div class="check-grid">
+    <select id="energy"><option>low</option><option selected>ok</option><option>good</option></select>
+    <select id="balance"><option>wobbly</option><option selected>steady</option></select>
+    <select id="mind"><option>foggy</option><option selected>clear</option></select>
+    <select id="mood"><option>irritable</option><option selected>calm</option></select>
+  </div>
+  <button class="primary mt" id="saveCheck">Save</button>
 
-          <div class="quest hyd" data-quest="water">
-            <div>
-              <div class="qtitle">Hydration</div>
-              <div class="qsub"><span id="waterCount">0</span>/<span id="waterGoal">8</span> cups</div>
-            </div>
-            <div class="water-controls">
-              <button class="mini" data-action="waterMinus">–</button>
-              <button class="mini" data-action="waterPlus">+</button>
-            </div>
-          </div>
-        </div>
+  <hr class="sep" />
 
-        <div class="panel">
-          <div class="h2">Brain Check</div>
-          <div class="check-grid">
-            <select id="energy"><option>low</option><option selected>ok</option><option>good</option></select>
-            <select id="balance"><option>wobbly</option><option selected>steady</option></select>
-            <select id="mind"><option>foggy</option><option selected>clear</option></select>
-            <select id="mood"><option>irritable</option><option selected>calm</option></select>
-          </div>
-          <button class="primary mt" id="saveCheck">Save</button>
-          <div class="big mt" id="dailyScore">0</div>
+  <div class="row">
+    <div>
+      <div class="h2">Daily Score</div>
+      <div class="muted small" id="lastAction">Last action: —</div>
+    </div>
+    <div class="big" id="dailyScore">0</div>
+  </div>
+</div>
+
         </div>
       </div>
     </section>
@@ -132,7 +117,8 @@
     </section>
 
   </main>
-
+  
+<div id="toast" class="toast hidden"></div>
   <script src="app.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
